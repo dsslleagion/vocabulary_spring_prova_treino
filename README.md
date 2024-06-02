@@ -20,3 +20,5 @@ Dicas:
 ● Não esqueça de criar o banco de dados antes de executar o backend;
 ● Para entradas do tipo "datetime" é possíve utilizar o tipo "datetime-local" de "input"
 (https://www.w3schools.com/tags/att_input_type_datetime-local.asp).
+
+https://gitpod.io/#/dhttps://github.com/dsslleagion/vocabulary_spring_prova_treino
