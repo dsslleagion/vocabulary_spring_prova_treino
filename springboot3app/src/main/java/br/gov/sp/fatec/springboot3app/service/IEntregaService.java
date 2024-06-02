@@ -12,5 +12,9 @@ public interface IEntregaService {
     public List<Entrega> buscarTodas();
 
     public Entrega novaEntrega(Entrega entrega);
+
+    Entrega atualizarEntrega(Entrega entrega);
+
+    void excluirEntrega(Long id);
     
 }

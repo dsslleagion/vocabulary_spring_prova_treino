@@ -43,5 +43,36 @@ public class EntregaService implements IEntregaService{
     public List<Entrega> buscarTodas() {
         return entregaRepo.findAll();
     }
-    
+     // Novo método para atualizar uma entrega existente
+     @Override
+     public Entrega atualizarEntrega(Entrega entrega) {
+         if (entrega == null || 
+             entrega.getDescricao() == null || 
+             entrega.getPeso() == null || 
+             entrega.getDataHoraLimite() == null || 
+             entrega.getId() == null) {
+             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Dados inválidos!");
+         }
+ 
+         Entrega entregaExistente = entregaRepo.findById(entrega.getId())
+             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Entrega não encontrada!"));
+ 
+         entregaExistente.setDescricao(entrega.getDescricao());
+         entregaExistente.setPeso(entrega.getPeso());
+         entregaExistente.setDataHoraLimite(entrega.getDataHoraLimite());
+         entregaExistente.setObservacoes(entrega.getObservacoes());
+ 
+         return entregaRepo.save(entregaExistente);
+     }
+
+     @Override
+    public void excluirEntrega(Long id) {
+        if (id == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id não pode ser nulo!");
+        }
+        if (!entregaRepo.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Entrega não encontrada!");
+        }
+        entregaRepo.deleteById(id);
+    }
 }
