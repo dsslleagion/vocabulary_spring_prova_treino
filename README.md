@@ -21,4 +21,4 @@ Dicas:
 ● Para entradas do tipo "datetime" é possíve utilizar o tipo "datetime-local" de "input"
 (https://www.w3schools.com/tags/att_input_type_datetime-local.asp).
 
-https://gitpod.io/#/dhttps://github.com/dsslleagion/vocabulary_spring_prova_treino
+https://gitpod.io/#/https://github.com/dsslleagion/vocabulary_spring_prova_treino
